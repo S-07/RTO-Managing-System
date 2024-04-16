@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/adminHome.css}">
+<title>Welcome Page</title>
+</head>
+
+<section class="nav-container">
+	<header class="nav-container">
+		<div class="nav-container">
+			<nav>
+				<a th:href="@{/admin/complaints}">Complaints</a>
+				 <a th:href="@{/admin/vehicle}">Register Vehicle</a>
+				 <a th:href="@{/admin/vehicleDetails}">Show Vehicle Details</a> 
+				  <a th:href="@{/admin/DisplayRecords}">License Holders</a> 
+				  
+				   
+			</nav>
+		</div>
+	</header>
+	<video  loop autoplay muted>
+                    <source  th:src="@{/Videos/adminhome.mp4}" type="video/mp4">
+                    </video>
+</section>
+
+<section class="welcome-container">
+
+	<body>
+	
+		<main>
+			<div class="welcome-container">
+				<h2>
+					Welcome,<a id="username" style="color: #03e9f4;"> Admin!</a>
+				</h2>
+
+				<div class="user-box">
+					<p>Congratulations! You have successfully logged in.</p>
+				</div>
+
+
+				<div class="user-box">
+					<p>
+						If you'd like to log out now, <a href="/"> <i>CLICK HERE</i></a>.
+					</p>
+				</div>
+			</div>
+		</main>
+	</body>
+</section>
+
+
+
+</html>

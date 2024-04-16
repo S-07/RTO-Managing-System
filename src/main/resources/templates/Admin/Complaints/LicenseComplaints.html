@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>License Details and Complaints</title>
+         <link rel="stylesheet" th:href="@{/LicenseComplaints.css}" href="">
+</head>
+<body>
+    <h1>Enter License Details and Complaints</h1>
+    <form th:action="@{/admin/complaints}" th:object="${complaintsModel}"  method="post">
+        <label for="licenseNumber">License Number:</label><br>
+        <input type="text" id="licenseNumber" th:field="*{licenseNumber}"><br>
+       
+          <select name="complaints" class="datalist" th:field="*{complaints}">
+    <datalist id="complaints">
+        <option class="selp" value="none">Select License Complaint</option>
+        <option class="selq" value="Rash Driving">Rash Driving</option>
+        <option class="selq" value="Driver didn't wear seatBelt">Driver didn't wear seatBelt</option>
+        <option class="selq" value="Helmet">Helmet</option>
+        <option class="selq" value="Pillion Helmet">Pillion Helmet</option>
+        <option class="selq" value="No Parking">No Parking</option>
+        <option class="selq" value="No Way">No Way</option>
+        <option class="selq" value="Signal Stopping">Signal Stopping</option>
+        <option class="selq" value="Sun Sheet">Sun Sheet</option>
+        <option class="selq" value="Drunk and Drive">Drunk and Drive</option>
+        <option class="selq" value="Accident">Accident</option>
+       
+    </datalist>
+</select>
+   <select name="fine" class="datalist" th:field="*{fine}">
+    <datalist id="fine">
+        <option class="selp" value="none">Select Fine Amount</option>
+        <option class="selq" value="500">500</option>
+        <option class="selq" value="1,000">1000</option>
+        <option class="selq" value="2,000">2000</option>
+        <option class="selq" value="5,000">5000</option>
+        <option class="selq" value="10,000">10000</option>
+       
+       
+    </datalist>
+</select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+
+

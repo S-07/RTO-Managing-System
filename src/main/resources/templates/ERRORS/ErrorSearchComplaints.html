@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+p {
+    color: red;
+    font-size: 1.5em;
+    text-align: center;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.danger-icon {
+    color: red;
+    font-size: 2em;
+    animation: blinker 1s linear infinite;
+}
+</style>
+</head>
+<body>
+<i class="fas fa-exclamation-triangle danger-icon"></i>
+<p th:text="${message}"></p>
+</body>
+</html>

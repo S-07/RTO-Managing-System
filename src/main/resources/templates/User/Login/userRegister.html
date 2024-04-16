@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" th:href="@{/userRegistration.css}">
+    <title>NewUser</title>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var fullname = document.getElementById('fullname').value;
+            var mobile = document.getElementById('mobile').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Username should contain name + @ + numbers
+  
+					var usernameRegex = /^[a-zA-Z]+@[0-9]+$/;
+						if (!usernameRegex.test(username)) {
+							alert('Username should contain name + @ + numbers');
+							return false;
+						}
+
+						// Fullname should only contain alphabets
+						var fullnameRegex = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
+						if (!fullnameRegex.test(fullname)) {
+							alert('Please enter a valid full name');
+							return false;
+						}
+						
+						
+						//user email
+					var userEmail = document.getElementById('email').value;
+						var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+						if (!emailRegex.test(userEmail)) {
+							alert('Please enter a valid email');
+							return false;
+						}
+
+						// Mobile number should start with 6,7,8,9 and have 10 digits
+						var mobileRegex = /^[6789]\d{9}$/;
+						if (!mobileRegex.test(mobile)) {
+							alert('Please enter a valid contact number');
+							return false;
+						}
+
+						// Password should contain 8 letters in that one special character and one uppercase
+						var passwordRegex = /^(?=.*[A-Z])(?=.*\W)(?=.*[a-z])(?=.*[0-9]).{8,}$/;
+						if (!passwordRegex.test(password)) {
+							alert('Password should contain 8 or more characters with at least one special character, one uppercase letter, one lowercase letter, and one number');
+							return false;
+						}
+
+						return true;
+					}
+				</script>
+</head>
+<body>
+    <div class="signup-box">
+        <h2>User Registration</h2>
+        <form th:action="@{/userLogin}" th:object="${userModel}"  method="post" onsubmit="return validateForm()">
+            <div class="user-box">
+                <input  type="text" th:field="*{username}" id="username" class="form-control" placeholder="User Name" required />
+				<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+            </div> 
+            <div class="user-box">
+                <input  type="text" th:field="*{user_fullname}" id="fullname" class="form-control" placeholder="Full Name" required />
+            </div>
+            <div class="user-box">
+                <input type="text" th:field="*{user_mobile}" id="mobile" class="form-control" placeholder="Mobile Number" required />
+            </div>
+            <div class="user-box">
+                <input  type="email" th:field="*{user_email}" id="email" class="form-control"  placeholder="Email" required />
+            </div>
+            <div class="user-box">
+                <input type="password" th:field="*{password}" id="password" class="form-control"placeholder="Password" required />
+            </div> 
+            <a class="submit"target="_blank">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </a>
+            <div class="log-in">
+                <p>Already have an account? <a class="log-in-link" target="_blank" th:href="@{/userLog}"><strong>Log In</strong></a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

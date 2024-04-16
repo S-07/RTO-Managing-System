@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>License Renewal</title>
+    <link rel="stylesheet" href="" th:href="@{/CheckRenewal.css}">
+</head>
+<body>
+    <div class="background-image"></div>
+    <h1>License Renewal</h1>
+    <form action="#" th:action="@{/checkRenewal}" th:object="${licenseRegister}" method="post">
+        <label for="licenseNumber">License Number:</label><br>
+        <input type="text" id="licenseNumber" name="licenseNumber" th:field="*{licenseNumber}"><br>
+        <input type="submit" value="Check Renewal">
+    </form>
+    <p th:text="${renewalStatus}"></p>
+</body>
+</html>

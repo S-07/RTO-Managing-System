@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicles</title>
+        <link rel="stylesheet" th:href="@{/DisplayLicense.css}" href="../static/css/style.css">
+
+</head>
+<body>
+<h2 align="center">Vehicle holders</h2>
+<a th:href="@{/delete/vehicle}">Delete Vehicle Details</a>
+<a href="/admin/home">Back</a>
+  <form th:action="@{/vehicle/search}" method="get">
+    <input type="text" name="aadharNumber" placeholder="Enter Your Aadhar number">
+    <button type="submit">Search</button>
+</form>
+
+ <div class="container">
+    <div th:each="dV : ${displayVehicle}" class="card">
+      <div class="box">
+        <div class="content">
+         
+           
+          <h3><b th:text="${dV.aadharNumber}"></b></h3>
+          <p th:text="${dV.ownerName}"></p>
+          <p th:text="${dV.ownerContact}"></p>
+          <p th:text="${dV.owneraddress}"></p>
+          <p th:text="${dV.vehicleCategory}"></p>
+          <p th:text="${dV.makersClass}"></p>
+          <p th:text="${dV.manufacturedDate}"></p>
+           <p th:text="${dV.fuelUsed}"></p>
+          
+<!--           <a th:href="@{/member/{id}(id=${dL.license_id})}">Edit</a>
+
+
+typeOfVehicle
+ -->        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- <a th:href="@{/member/new}">Register New Member</a>
+<a href="/book">Home</a> -->
+</body>
+</html>
+
+
+
+
+ 

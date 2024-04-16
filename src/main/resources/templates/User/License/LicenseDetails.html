@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Personal Information Form</h2>
+
+
+
+
+<!-- <form th:action="@{/user/Register}" th:object="${licenseModel}"  method="post">
+
+             <div class="user-box">
+                <input  type="text" th:field="${fullName}" class="form-control" placeholder="Full Name" required />
+            </div> 
+
+            <div class="user-box">
+                <input  type="number" th:field="${age}" class="form-control" placeholder="Age" min=18 max= 80 required />
+            </div>
+            
+             <div class="user-box">
+                <input type="text" th:field="${aadharNumber}" class="form-control" placeholder="Aadhar Number" min="12" max="12" required />
+            </div>
+
+            <div class="user-box">
+                <input type="text" th:field="${mobileNumber}" class="form-control" placeholder="Mobile Number" pattern="[789][0-9]{9}" min="10" required />
+            </div>
+            
+            <select name="countries" class="datalist" th:field="${state}">
+    <datalist id="state">
+        <option class="selp" value="none">Select Your State</option>
+        <option class="selq" value="Tamil Nadu">TamilNadu</option>
+        <option class="selq" value="Karnataka">Karnataka</option>
+        <option class="selq" value="Kerala">Kerala</option>
+        <option class="selq" value="Andhra Pradesh">Andhra Pradesh</option>
+        <option class="selq" value="Madhya Pradesh">Madhya Pradesh</option>
+        <option class="selq" value="Maharastra">Maharashtra</option>
+        <option class="selq" value="Gujarat">Gujarat</option>
+        <option class="selq" value="Goa">Goa</option>
+        <option class="selq" value="Bihar">Bihar</option>
+        <option class="selq" value="Assam">Assam</option>
+        <option class="selq" value="Delhi">Delhi</option>
+        <option class="selq" value="Chattisgarh">Chhattisgarh</option>
+        <option class="selq" value="Jharkhand">Jharkhand</option>
+        <option class="selq" value="Himachal Pradesh">Himachal Pradesh</option>
+        <option class="selq" value="Manipur">Manipur</option>
+    </datalist>
+</select>
+
+            <div class="user-box">
+                <textarea   th:field="${address}" class="form-control"  placeholder="Address" required rows="4"/></textarea>
+            </div>
+
+            <div class="user-box">
+                <input type="date" th:field="${dateOfIssue}" class="form-control"placeholder="Date Of Issue" required />
+            </div> 
+            
+            <a class="submit"target="_blank" th:href="@{/user/home}">
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </a>
+
+            <button type="submit">Submit</button>
+
+            
+        </form> -->
+        
+ <table class="table table-striped table-hover table-bordered " >
+
+      <thead class="thead-dark">
+
+        <tr >
+
+          <th>Full Name</th>
+
+          <th>Age</th>
+
+          <th>AADhar number</th>
+
+          <th>Mobile</th>
+
+          <th>state</th>
+
+          <th>Address</th>
+
+          <th>dateofissue</th>
+          <th>License Number</th>
+
+          
+
+
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr th:each="licenses : ${license}">
+
+          <td th:text="${licenses.fullName}"></td>
+
+          <td th:text="${licenses.age}"></td>
+      
+          <td th:text="${licenses.aadharNumber}"></td>
+          <td th:text="${licenses.mobileNumber}"></td>
+          <td th:text="${licenses.state}"></td>
+          <td th:text="${licenses.address}"></td>
+          <td th:text="${licenses.dateOfIssue}"></td>
+          <td th:text="${licenses.licenseNumber}"></td>
+          
+
+         
+
+        </tr>
+
+      </tbody>
+
+    </table>
+        
+        
+        
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Members</title>
+        <link rel="stylesheet" th:href="@{/DisplayLicense.css}" href="../static/css/style.css">
+
+</head>
+<body>
+<h2 align="center">Vehicle holders</h2>
+
+<a href="/admin/vehicleDetails">Back</a>
+  
+
+ <div class="container">
+    <div th:each="dV : ${displayVehicle}" class="card">
+      <div class="box">
+        <div class="content">
+         
+           
+          <h3><b th:text="${dV.aadharNumber}"></b></h3>
+          <p th:text="${dV.ownerName}"></p>
+          <p th:text="${dV.ownerContact}"></p>
+          <p th:text="${dV.owneraddress}"></p>
+          <p th:text="${dV.vehicleCategory}"></p>
+          <p th:text="${dV.makersClass}"></p>
+          <p th:text="${dV.manufacturedDate}"></p>
+           <p th:text="${dV.fuelUsed}"></p>
+           <a th:href="@{/vehicle/delete/{id}(id=${dV.vehicleId})}">DELETE</a>
+          
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+ 

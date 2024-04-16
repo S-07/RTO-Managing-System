@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Details</title>
+    <link rel="stylesheet" th:href="@{/UpdateLicense.css}" href="">
+     
+</head>
+<body>
+ <a href="/admin/DisplayRecords">Back</a>
+  <form th:action="@{/holder/update1}" method="get">
+    <input type="text" name="licenseNumber" placeholder="Enter Your License Number">
+    <button type="submit">Search</button>
+</form>
+
+  <div class="container">
+    <div th:each="dL : ${displayLicense}" class="card">
+      <div class="box">
+        <div class="content">
+         
+           <h3><b th:text="${dL.licenseNumber}">License Number</b></h3>
+          <h3><b th:text="${dL.fullName}">Full Name</b></h3>
+          <p th:text="${dL.age}">Age</p>
+          <p th:text="${dL.aadharNumber}">Aadhar Number</p>
+          <p th:text="${dL.mobileNumber}">Mobile Number</p>
+          <p th:text="${dL.bloodGroup}">Blood Group</p>
+          <p th:text="${dL.state}">State</p>
+          <p th:text="${dL.address}">Address</p>
+          <p th:text="${dL.dateOfIssue}">Date Of Issue</p>
+          <a th:href="@{/LicenseUpdate/{id}(id=${dL.license_id})}">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

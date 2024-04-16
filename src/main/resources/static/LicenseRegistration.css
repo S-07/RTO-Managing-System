@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.user-box {
+    margin-bottom: 25px;
+}
+
+.user-box input[type="text"], .user-box input[type="number"], .user-box input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+}
+
+.datalist {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}

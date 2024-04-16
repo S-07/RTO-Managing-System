@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/LicenseRegistration.css}">
+<title>New License</title>
+
+<script>
+        function validateForm() {
+        	
+        	  var fullname = document.getElementById('fullname').value;
+        	  var fullnameRegex = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
+				if (!fullnameRegex.test(fullname)) {
+					alert('Please enter a valid full name');
+					return false;
+				}
+				
+				var aadharNumber = document.getElementById('aadharNumber').value;
+				var aadharNumberRegex = /^\d{12}$/;
+				if (!aadharNumberRegex.test(aadharNumber)) {
+				    alert('Please enter a valid Aadhar number');
+				    return false;
+				}
+
+				  var mobile = document.getElementById('mobile').value;
+				var mobileRegex = /^[6789]\d{9}$/;
+				if (!mobileRegex.test(mobile)) {
+					alert('Please enter a valid contact number');
+					return false;
+				}
+        	
+        	
+				var inputDate = new Date(document.getElementById('date').value);
+				inputDate.setHours(0,0,0,0); // set the time to 00:00:00
+				var today = new Date();
+				today.setHours(0,0,0,0); // set the time to 00:00:00
+
+				if (inputDate.getTime() > today.getTime()) {
+				    alert("Date of Issue should be today or a date in the past");
+				    return false;
+				}
+				return true;
+
+
+            
+           
+        }
+    </script>
+
+</head>
+
+<body>
+
+	<h2>License Registration</h2>
+	<form th:action="@{/user/Register}" th:object="${licenseModel}"
+		method="post" onsubmit="return validateForm()">
+		<div class="user-box">
+			<input type="text" id="fullname" th:field="*{fullName}"
+				class="form-control" placeholder="Full Name" required />
+		</div>
+
+		<div class="user-box">
+			<input type="number" th:field="*{age}" class="form-control"
+				placeholder="Age" min=18 max=80 required />
+		</div>
+		<select name="blood" class="datalist" th:field="*{bloodGroup}">
+			<datalist id="blood">
+				<option class="selp" value="none">Select Your Blood Group</option>
+				<option class="selq" value="A +ve">A positive</option>
+				<option class="selq" value="B +ve">B positive</option>
+				<option class="selq" value="AB +ve">AB positive</option>
+				<option class="selq" value="O +ve">O positive</option>
+				<option class="selq" value="A1B +ve">A1B positive</option>
+				<option class="selq" value="A -ve">A negative</option>
+				<option class="selq" value="B -ve">B negative</option>
+				<option class="selq" value="AB -ve">AB negative</option>
+				<option class="selq" value="O -ve">O negative</option>
+				<option class="selq" value="A1B -ve">A1B negative</option>
+
+			</datalist>
+		</select>
+
+		<div class="user-box">
+			<input type="text" th:field="*{aadharNumber}" id="aadharNumber"
+				class="form-control" placeholder="Aadhar Number" min="12" max="12"
+				required />
+		</div>
+
+		<div class="user-box">
+			<input type="text" th:field="*{mobileNumber}" id="mobile"
+				class="form-control" placeholder="Mobile Number"
+				pattern="[789][0-9]{9}" min="10" required />
+		</div>
+
+		<select name="countries" class="datalist" th:field="*{state}">
+			<datalist id="state">
+				<option class="selp" value="none">Select Your State</option>
+				<option class="selq" value="TN">TamilNadu</option>
+				<option class="selq" value="KA">Karnataka</option>
+				<option class="selq" value="KL">Kerala</option>
+				<option class="selq" value="AP">AndhraPradesh</option>
+				<option class="selq" value="MP">MadhyaPradesh</option>
+				<option class="selq" value="MH">Maharashtra</option>
+				<option class="selq" value="GJ">Gujarat</option>
+				<option class="selq" value="GA">Goa</option>
+				<option class="selq" value="BR">Bihar</option>
+				<option class="selq" value="AS">Assam</option>
+				<option class="selq" value="DL">Delhi</option>
+				<option class="selq" value="CG">Chhattisgarh</option>
+				<option class="selq" value="JH">Jharkhand</option>
+				<option class="selq" value="HP">HimachalPradesh</option>
+				<option class="selq" value="MN">Manipur</option>
+			</datalist>
+		</select>
+
+		<div class="user-box">
+			<input type=text th:field="*{address}" class="form-control"
+				placeholder="Address" required />
+		</div>
+
+		<div class="user-box">
+			<input type="date" id="date" th:field="*{dateOfIssue}"
+				class="form-control" placeholder="Date Of Issue" required />
+
+		</div>
+
+		<select name="TypeOfvehicle" class="datalist"
+			th:field="*{typeOfVehicle}">
+			<datalist>
+				<option class="selp" value="none">Select Your Vehicle Type</option>
+				<option class="selq" value="Two Wheeler">Two Wheeler</option>
+				<option class="selq" value="Four Wheeler">Four Wheeler</option>
+				<option class="selq" value="Heavy Vehicle">Heavy Vehicle</option>
+				<option class="selq" value="Commercial Vehicle">Commercial
+					Vehicle</option>
+
+			</datalist>
+		</select> <a class="submit" target="_blank" th:href="@{/user/home}">
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</a>
+		<!--  <button type="submit">Submit</button> -->
+
+
+	</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale-1.0">
+ <link rel="stylesheet" href="" th:href="@{/userLogin.css}">
+  <title>User Login</title>
+</head>
+
+<body>
+  <div class="login-box">
+    <h2> User LogIn</h2>
+    <form th:action="@{/userLog}" th:object="${user}" method="post">
+       <div class="user-box">
+        <input th:field="*{username}" id="username" type="text"  name="username" placeholder="Username"  />
+        <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert alert-danger">Username Error</small>
+      </div> 
+      
+
+      <div class="user-box">
+        <input type="password" th:field="*{password}" id="pwd" name="pwd" placeholder="Password"   />
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger">Password Error</div>
+      </div>
+
+
+      <a class="submit" target="_blank" >
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+       <button type="submit" class="btn btn-primary">Submit</button>
+      </a>
+
+      <div class="sign-up">
+        <p>Don't have an account? <a class="sign-up-link" target="_blank" th:href="@{userRegister}"><strong>Sign Up</strong></a></p>
+      </div>
+    </form>
+  </div>
+</body>
+
+
+
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" th:href="@{/userRegistration.css}">
+    <title>NewUser</title>
+</head>
+
+<body>
+    <div class="signup-box">
+        <h2>User Registration</h2>
+          <form th:action="@{/userLogin}" th:object="${user}"  method="post">
+
+             <div class="user-box">
+                <input  type="text" th:field="*{username}" class="form-control" placeholder="UserName" required />
+            </div> 
+
+      
+
+            <div class="user-box">
+                <input type="password" th:field="*{password}" class="form-control"placeholder="Password" required />
+            </div> 
+            
+            <a class="submit"target="_blank" th:href="@{/home}">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </a>
+
+            <button type="submit">Submit</button>
+
+            <div class="log-in">
+                <p>Already have an account? <a class="log-in-link" target="_blank" th:href="@{/userLogin}"><strong>Log In</strong></a></p>
+            </div>
+        </form>
+        
+        
+    </div>
+</body>
+
+</html>
+
+ -->

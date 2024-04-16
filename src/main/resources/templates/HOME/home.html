@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Link File CSS -->
+  <link rel="stylesheet" href="" th:href="@{/home.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu">
+                <a href="/displayComplaints">Complaints</a>
+                <a href="/checkRenewal">License Renewal</a>
+                <a href="/adminRegister">New Admin</a>
+                <a href="/adminLog">Existing Admin</a>
+                <a  href="/userRegister">New User</a>
+                <a href="/userLog">Existing User</a>
+       
+                
+            </div>
+        </nav>
+        
+    </header>
+    
+    <div class="hero">
+
+        <div class="text">
+            <h4>Vehicle and New License Register</h4>
+            <h1>RTO Managing And <br> <span>Registering System</span></h1>
+            <p>Efficiency and accuracy pave the road to success in RTO Managing And Registering Systems!</p>
+            <a href="userRegister" class="btn">Register License</a>
+        </div>
+    </div>
+
+    <script src="" th:src=@{JS/home.js}>
+       
+    </script>
+</body>
+</html>

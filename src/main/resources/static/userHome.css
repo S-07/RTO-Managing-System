@@ -1,0 +1,118 @@
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+marquee {
+	font-family: sans-serif;
+	font-weight:bold;
+    font-size: 1em;
+    color:  #03e9f4;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header {
+  font-family: sans-serif;
+  padding: 20px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+}
+
+nav {
+  font-family: sans-serif;
+  display: inline;
+  justify-content: space-evenly;
+  word-spacing: auto;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #adadad;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+nav a {
+  font-family: sans-serif;
+  color: #adadad;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+nav a:hover {
+  color: #03e9f4;
+  cursor: pointer
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+main {
+  margin: 140px;
+}
+
+.welcome-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 50px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.welcome-container .user-box {
+  position: relative;
+}
+
+.welcome-container .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+.welcome-container h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+p {
+  color: #adadad;
+  text-align: center;
+  font-size: 13px;
+}
+
+a {
+  color: #adadad;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #03e9f4;
+  cursor: pointer
+}

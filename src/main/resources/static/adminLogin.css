@@ -1,0 +1,64 @@
+body{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('https://wallpapertag.com/wallpaper/full/b/7/e/118691-large-black-gradient-background-1920x1080.jpg');
+	background-size: cover;
+}
+h1{
+	color: orange;
+	text-align: center;
+	font-family: sans-serif;
+}
+h1:hover{
+	color: white;
+}
+a{
+	text-decoration: none;
+		color: black
+}
+a:hover{
+	color: orange;
+}
+form{
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.43);
+	border-radius: 20px;
+	margin: auto;
+	padding: 40px;
+	color: black;
+	box-sizing: border-box;
+	margin-top: 150px;
+	margin-bottom: 20px;
+	}
+	input[type=email],input[type=password]{
+		box-sizing: border-box;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.45);
+		padding: 10px 5px;
+		outline: none;
+		margin: auto;
+		margin-top: 15px;
+		border:none;
+		border-bottom: 1px solid white;
+		border-radius: 10px;
+		color: white;
+		font-size: 18px;	
+	}
+button {
+	width: 150px;
+	margin-top: 25px;
+	margin-left: 80px;
+	border-radius: 18px;
+	font-size: 25px;
+	background-color: orange;
+	outline: none;
+	border:none;
+	box-sizing: border-box;
+	padding: 5px;
+	transition-duration:0.4s;
+
+}	
+button:hover{
+	background-color: black;
+	color: orange;
+	border: 1px solid orange;
+
+}

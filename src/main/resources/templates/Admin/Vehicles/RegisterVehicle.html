@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/VehicleRegistration.css}">
+<title>New Vehicle</title>
+<script>
+
+	function validate(){
+		
+        var inputDate = new Date(document.getElementById('manufacturedDate').value);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        if (inputDate >= today) {
+            alert("Manufactured Date should be less than today's date");
+            return false;
+        }
+        return true;
+	}
+
+
+    function updateMakersClass() {
+        var vehicleType = document.getElementById('VehicleType').value;
+        var makersClass = document.getElementById('makersClass');
+        var twoWheelerBrands = ['TVS', 'KAWASAKI', 'DUKE','KTM', 'HERO', 'HONDA','BAJAJ', 'BMW', 'JAWA','ROYAL ENFIELD', 'BUGATI', 'HARLEY DAVISON','YAMAHA'];
+        var fourWheelerBrands = ['HYUNDAI', 'BMW', 'BENZ', 'AUDI','HONDA', 'TATA', 'LAMBORGHINI', 'TOYATA','MARUTI SUZUKI', 'TESLA', 'FERRARI', 'VOLKSWAGEN','NISSAN','Jeep', 'Porsche', 'Dodge', 'Jaguar',' Rolls-Royce'];
+
+        // Clear out the options
+        makersClass.innerHTML = '';
+
+        // Add new options based on the selected vehicle type
+        if (vehicleType === 'Two Wheeler') {
+            twoWheelerBrands.forEach(function(brand) {
+                var option = document.createElement('option');
+                option.text = brand;
+                option.value = brand;
+                makersClass.add(option);
+            });
+        } else if (vehicleType === 'Four Wheeler') {
+            fourWheelerBrands.forEach(function(brand) {
+                var option = document.createElement('option');
+                option.text = brand;
+                option.value = brand;
+                makersClass.add(option);
+            });
+        }
+    }
+</script>
+</head>
+
+<body>
+	<div class="signup-box">
+		<h2>Vehicle Registration</h2>
+		<form th:action="@{/admin/VehicleRegister}"
+			th:object="${vehicleModel}" method="post" onsubmit="return validate()">
+
+
+			<div class="user-box">
+				<input type="text" th:field="*{aadharNumber}" class="form-control"
+					placeholder="Aadhar Number" min="12" max="12" required />
+			</div>
+
+			<div class="user-box">
+				<input type="text" th:field="*{ownerName}" class="form-control"
+					placeholder="Owner Name" min=18 max=80 required />
+			</div>
+
+			<div class="user-box">
+				<input type="text" th:field="*{ownerContact}" class="form-control"
+					placeholder="Owner Contact" pattern="[789][0-9]{9}" min="10"
+					required />
+			</div>
+
+			<div class="user-box">
+				<input type="text" th:field="*{owneraddress}" class="form-control"
+					placeholder="Owner Address" required />
+			</div>
+
+
+
+			
+
+			<div class="user-box">
+				<label for="manufacturedDate">Manufactured Date</label> <input
+					type="date" id="manufacturedDate" th:field="*{manufacturedDate}"
+					class="form-control" placeholder="Manufactured Date" required />
+			</div>
+			<div class="user-box">
+				<select id="VehicleType" name="vehicleType" class="datalist"
+					th:field="*{vehicleCategory}" onchange="updateMakersClass()">
+					<option class="selp" value="none">Select Your Type</option>
+					<option class="selq" value="Two Wheeler">Two Wheeler</option>
+					<option class="selq" value="Four Wheeler">Four Wheeler</option>
+				</select>
+			</div>
+			
+			
+			<div class="user-box">
+				<select id="makersClass" th:field="*{makersClass}" class="form-control"  required>
+				</select>
+			</div>
+			
+
+			 <select name="fuelType" class="datalist" th:field="*{fuelUsed}">
+				<datalist>
+					<option class="selp" value="none">Select Your Vehicle Fuel</option>
+					<option class="selq" value="Petrol">Petrol</option>
+					<option class="selq" value="Diesel">Diesel</option>
+					<option class="selq" value="EV">EV</option>
+				</datalist>
+			</select> 
+			
+		<a class="submit" target="_blank" th:href="@{/admin/home}">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</a>
+
+			<!--  <button type="submit">Submit</button> -->
+
+
+		</form>
+
+
+	</div>
+</body>
+
+</html>

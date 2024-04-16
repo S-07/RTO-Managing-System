@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Admin SignUp</title>
+  <link rel="stylesheet" href="" th:href="@{/adminRegistration.css}">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js">
+	</head>
+	<body>
+		<div class="form">
+			
+			<h1> Admin Registration!</h1>
+
+			<form th:action="@{/adminRegister}" th:object="${adminModel}" method="post" onsubmit="return validateForm()">
+				<input type="text" id="username" name="" th:field="*{adminname}" placeholder="User Name"><br>
+				<input type="text" id="fullname" name="" th:field="*{fullname}" placeholder="Full Name"><br>
+				<input type="text" id="mobile" name="" th:field="*{mobilenumber}" placeholder="Phone"><br>
+				<input type="text" id="address" name="" th:field="*{address}" placeholder="Address"><br>
+				<input type="text" id="email" name="" th:field="*{email}" placeholder="Email"><br>
+				<input type="password" id="password" name="password" th:field="*{password}"  placeholder="Password"><br>
+				
+				<br>
+			<select name="countries" class="datalist" th:field="*{countries}">
+    <datalist id="state">
+        <option class="selp" value="none">Select Your State</option>
+        <option class="selq" value="Tamil Nadu">TamilNadu</option>
+        <option class="selq" value="Karnataka">Karnataka</option>
+        <option class="selq" value="Kerala">Kerala</option>
+        <option class="selq" value="Andhra Pradesh">Andhra Pradesh</option>
+        <option class="selq" value="Madhya Pradesh">Madhya Pradesh</option>
+        <option class="selq" value="Maharastra">Maharashtra</option>
+        <option class="selq" value="Gujarat">Gujarat</option>
+        <option class="selq" value="Goa">Goa</option>
+        <option class="selq" value="Bihar">Bihar</option>
+        <option class="selq" value="Assam">Assam</option>
+        <option class="selq" value="Delhi">Delhi</option>
+        <option class="selq" value="Chattisgarh">Chhattisgarh</option>
+        <option class="selq" value="Jharkhand">Jharkhand</option>
+        <option class="selq" value="Himachal Pradesh">Himachal Pradesh</option>
+        <option class="selq" value="Manipur">Manipur</option>
+    </datalist>
+</select>
+
+				
+				<input type="radio" name="gender" value="male" checked><span class="rad">Male</span>
+				<input type="radio" name="gender" value="female"> <span class="rad">Female</span>
+				<input type="radio" name="gender" value="other">
+				<span class="rad">Other</span>
+				<a class="submit"target="_blank" >
+				<button type="submit" class="btn btn-primary">Sign Up</button></a>
+				<h3>Already have account ? <a class="aclk" th:href="@{adminLog}">Click here!</a></h3>
+			</form>
+		</div>
+		<script>
+			function validateForm() {
+				var username = document.getElementById('username').value;
+				var fullname = document.getElementById('fullname').value;
+				var mobile = document.getElementById('mobile').value;
+				var email = document.getElementById('email').value;
+				var password = document.getElementById('password').value;
+
+				// Username should contain name + @ + numbers
+				var usernameRegex = /^[a-zA-Z]+@[0-9]+$/;
+				if (!usernameRegex.test(username)) {
+					alert('Username should contain name + @ + numbers');
+					return false;
+				}
+
+				// Fullname should only contain alphabets
+				var fullnameRegex = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
+				if (!fullnameRegex.test(fullname)) {
+					alert('Please enter a valid full name');
+					return false;
+				}
+
+				// Mobile number should start with 6,7,8,9 and have 10 digits
+				var mobileRegex = /^[6789]\d{9}$/;
+				if (!mobileRegex.test(mobile)) {
+					alert('Please enter a valid contact number');
+					return false;
+				}
+
+				// Password should contain 8 letters in that one special character and one uppercase
+				var passwordRegex = /^(?=.*[A-Z])(?=.*\W)(?=.*[a-z])(?=.*[0-9]).{8,}$/;
+				if (!passwordRegex.test(password)) {
+					alert('Password should contain 8 or more characters with at least one special character, one uppercase letter, one lowercase letter, and one number');
+					return false;
+				}
+
+				return true;
+			}
+		</script>
+		
+		
+		
+	</body>
+</html>

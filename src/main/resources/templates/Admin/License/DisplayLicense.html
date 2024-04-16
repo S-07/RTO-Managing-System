@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>License Holders</title>
+ <link rel="stylesheet" th:href="@{/DisplayLicense.css}" href=""> 
+</head>
+<body>
+
+  <h2 >License Holders</h2>
+  <a th:href="@{/holder/update}">Update Details</a>
+  <a th:href="@{/holder/delete}">Delete Details</a>
+  <a href="/admin/home">Back</a>
+  <form th:action="@{/searchLicense}" method="get">
+    <input type="text" name="licenseNumber" placeholder="Enter Your License Number">
+    <button type="submit">Search</button>
+</form>
+  <div class="container">
+    <div th:each="dL : ${displayLicense}" class="card">
+      <div class="box">
+        <div class="content">
+         
+           <h3><b th:text="${dL.licenseNumber}"></b></h3>
+          <h3><b th:text="${dL.fullName}"></b></h3>
+          <p th:text="${dL.age}"></p>
+          <p th:text="${dL.aadharNumber}"></p>
+          <p th:text="${dL.mobileNumber}"></p>
+          <p th:text="${dL.bloodGroup}"></p>
+          <p th:text="${dL.state}">State</p>
+          <p th:text="${dL.address}">Address</p>
+          <p th:text="${dL.dateOfIssue}">Date Of Issue</p>
+           <p th:text="${dL.typeOfVehicle}">Date Of Issue</p>
+          
+<!--           <a th:href="@{/member/{id}(id=${dL.license_id})}">Edit</a>
+
+
+typeOfVehicle
+ -->        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

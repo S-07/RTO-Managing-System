@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="" th:href="@{adminLogin.css}">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js">
+	</head>
+	<body>
+		<div class="container">
+			<form th:action="@{/adminLog}" th:object="${admin}" method="post">
+				<h1>Login Here!</h1>
+				<input type="email"  name="" th:field="*{adminname}" placeholder="Admin Name"><br>				
+				<input type="password"  name="" th:field="*{password}" placeholder="password">				
+				<br>				
+				<a href="#"><button type="submit" class="btn btn-primary">Login!</button></a>
+			</form>
+		</div>
+	</body>
+</html>

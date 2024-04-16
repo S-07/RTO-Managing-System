@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" th:href="@{/LicenseRegistration.css}">
+    <title>Update License</title>
+</head>
+
+<body>
+    <div class="signup-box">
+        <h2> Update License Details</h2>
+          <form th:action="@{/license/update}" th:object="${updateLicense}"  method="post">
+
+             <div class="user-box">
+                <input  type="text" th:field="*{fullName}" class="form-control" placeholder="Full Name" required />
+            </div> 
+
+            <div class="user-box">
+                <input  type="number" th:field="*{age}" class="form-control" placeholder="Age" min=18 max= 80 required />
+            </div>
+            
+             <div class="user-box">
+                <input type="text" th:field="*{aadharNumber}" class="form-control" placeholder="Aadhar Number" min="12" max="12" required />
+            </div> 
+
+            <div class="user-box">
+                <input type="text" th:field="*{mobileNumber}" class="form-control" placeholder="Mobile Number" pattern="[789][0-9]{9}" min="10" required />
+            </div>
+            
+            <input type="hidden" id="state" th:field="*{state}"/><br/>
+          <input type="hidden" id="licenseNumber" th:field="*{licenseNumber}" >
+            <input type="hidden" id="dateOfIssue" th:field="*{dateOfIssue}"/>
+            <div class="user-box">
+                <input type=text   th:field="*{address}" class="form-control"  placeholder="Address" required />
+            </div>
+            
+ 
+           
+            
+            <a class="submit"target="_blank" th:href="@{/user/home}">
+            <!-- <input type="hidden" id="checkStatus" th:field="*{checkStatus}" th:value="available"> -->
+        <input type="hidden" id="id" th:field="*{license_id}"/><br/>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </a>
+
+           <!--  <button type="submit">Submit</button> -->
+
+            
+        </form>
+        
+        
+    </div>
+</body>
+
+</html>

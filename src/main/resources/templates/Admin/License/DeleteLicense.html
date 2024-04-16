@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DeleteLicense</title>
+    <link rel="stylesheet" th:href="@{/UpdateLicense.css}" href="../static/css/style.css">
+</head>
+<body>
+  <h2 align="center">Delete licenses</h2>
+   <form th:action="@{/holder/delete1}" method="get">
+    <input type="text" name="licenseNumber" placeholder="Enter Your License Number">
+    <button type="submit">Search</button>
+</form>
+  <a href="/admin/home">Back</a>
+  <div class="container">
+    <div th:each="dL : ${displayLicense}" class="card">
+      <div class="box">
+        <div class="content">
+          <h3><b th:text="${dL.licenseNumber}">License Number</b></h3>
+          <h3><b th:text="${dL.fullName}">Full Name</b></h3>
+          <p th:text="${dL.age}">Age</p>
+          <p th:text="${dL.aadharNumber}">Aadhar Number</p>
+          <p th:text="${dL.mobileNumber}">Mobile Number</p>
+          <p th:text="${dL.state}">State</p>
+          <p th:text="${dL.address}">Address</p>
+          <p th:text="${dL.dateOfIssue}">Date Of Issue</p>
+          <a th:href="@{/license/delete/{id}(id=${dL.license_id})}">DELETE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="" th:href="@{/userHome.css}">
+<title>Welcome Page</title>
+</head>
+
+<section class="nav-container">
+	<header class="nav-container">
+		<div class="nav-container">
+			<nav>
+				<a th:href="@{user/home}">Home</a> <a th:href="@{/user/RegisterLicense}">Register License</a> 
+				 <a th:href="@{/user/showDetails}">Show Details</a>
+			</nav>
+		</div>
+		
+	</header>
+	<marquee>"Your license is your passport to freedom, register it wisely"</marquee>
+</section>
+
+<section class="welcome-container">
+
+	<body>
+	
+		<main>
+			<div class="welcome-container">
+				<h2>
+					Welcome,<a id="username" style="color: #03e9f4;"> User!</a>
+				</h2>
+
+				<div class="user-box">
+					<p>Congratulations! You have successfully logged in.</p>
+				</div>
+
+
+				<div class="user-box">
+					<p>
+						If you'd like to log out now, <a href="/"> <i>CLICK HERE</i></a>.
+					</p>
+				</div>
+			</div>
+		</main>
+	</body>
+</section>
+
+
+
+</html>
